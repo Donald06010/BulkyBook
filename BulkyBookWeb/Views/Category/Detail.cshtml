@@ -1,0 +1,23 @@
+﻿@model IEnumerable<obj>
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>Category Detail</h1>
+
+<table class="table table-boardered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Display Oder</th>
+            <th>Created DateTime</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>@Model.Name</tr>
+        <tr>@Model.DisplayOrder</tr>
+        <tr>@Model.CreatedDateTime</tr>
+        <tr><a asp-controller="Category" asp-action="Edit" asp-route-id="@Model.Id">Edit</a></tr>
+        <tr><a asp-controller="Category" asp-action="Delete" asp-route-id="@Model.Id">Delete</a></tr>
+    </tbody>
+</table>
