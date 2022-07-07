@@ -112,8 +112,16 @@ namespace BulkyBookWeb.Controllers
         }
         public IActionResult Detail(int? id)
         {
-            var obj = _db.Categories.Where(x => x.Id == id);
-            return View(obj.ToString());
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var objCategoryList = _db.Categories.FirstOrDefault(x => x.Id == id);
+            if(objCategoryList == null)
+            {
+                return NotFound();
+            }
+            return View(objCategoryList);
         }
     }
 }

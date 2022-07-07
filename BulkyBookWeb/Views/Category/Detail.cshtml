@@ -1,4 +1,4 @@
-﻿@model IEnumerable<obj>
+﻿@model BulkyBookWeb.Models.Category
 @{
     ViewData["Title"] = "Detail";
 }
@@ -11,13 +11,20 @@
             <th>Category Name</th>
             <th>Display Oder</th>
             <th>Created DateTime</th>
+            <th style="text-align:center">Action</th>
         </tr>
     </thead>
     <tbody>
-        <tr>@Model.Name</tr>
-        <tr>@Model.DisplayOrder</tr>
-        <tr>@Model.CreatedDateTime</tr>
-        <tr><a asp-controller="Category" asp-action="Edit" asp-route-id="@Model.Id">Edit</a></tr>
-        <tr><a asp-controller="Category" asp-action="Delete" asp-route-id="@Model.Id">Delete</a></tr>
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.DisplayOrder</td>
+            <td>@Model.CreatedDateTime</td>
+            <td>
+                <div class="w-75 btn-group col-12" role="group">
+                    <a class="btn btn-primary mx-2 col-4" asp-controller="Category" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi bi-pencil"></i> &nbsp;Edit</a> &nbsp;&nbsp;
+                    <a class="btn btn-danger mx-2 col-4" asp-controller="Category" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash3"></i>Delete</a>
+                </div>
+            </td>
+        </tr>
     </tbody>
 </table>
